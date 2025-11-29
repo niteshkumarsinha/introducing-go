@@ -1,7 +1,6 @@
-echo 'export GOPATH=/Volumes/Data/golib\n' >> ~/.bash_profile
-source ~/.bash_profile
+## Commands
 
-# Commands
+```sh
 go env -w GOPATH=/Volumes/Data/golib
 go env -w GOBIN=/Volumes/Data/golib/bin
 go env -w GO111MODULE=on
@@ -35,6 +34,7 @@ go env -w GOINSECURE=github.com/yourusername/*
 go env -w GONOSUMDB=github.com/yourusername/*
 go env -w GOPRIVATE=github.com/yourusername/*
 go env -w GIT_TERMINAL_PROMPT=1
+```
 ## Shell setup
 
 Run these in your shell to persist GOPATH (example uses `~/.bash_profile`).
