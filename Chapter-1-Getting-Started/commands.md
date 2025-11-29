@@ -231,6 +231,43 @@ go doc fmt
 ```
 - Explanation: Show documentation for the `fmt` package.
 
+## go doc (documentation lookup)
+
+Use `go doc` to read package and symbol documentation from the command line. Common forms and flags:
+
+```sh
+go doc               # package docs for current directory
+go doc fmt           # package docs for the fmt package
+go doc fmt.Println   # docs and method/func summary for fmt.Println
+go doc encoding/json # package docs by import path
+go doc json.Number   # shorthand when the package name is unambiguous
+go doc json.Number.Int64
+```
+
+Flags and useful options:
+
+```sh
+go doc -all fmt         # show all documentation for the package
+go doc -src fmt.Println # show the full Go source of the symbol
+go doc -cmd cmd/doc     # treat package main like a regular package (show exported symbols)
+go doc -short fmt       # one-line representation for each symbol
+go doc -u fmt           # include unexported symbols
+go doc -c fmt           # respect case when matching symbols
+go doc -http :6060      # serve HTML docs over HTTP (open http://localhost:6060)
+```
+
+Examples:
+
+```sh
+go doc fmt.Println
+go doc encoding/json Unmarshal       # two-argument form: package then symbol
+go doc -src encoding/json.Decoder.Decode
+go doc -all encoding/json
+go doc -cmd cmd/doc
+```
+
+- Tip: Uppercase letters in an argument force symbol matching in the current package; use `-c` to make case matching exact.
+
 ## `go tool` utilities
 
 ```sh
