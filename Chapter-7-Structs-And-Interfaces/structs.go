@@ -20,6 +20,17 @@ func (c *Circle) Area() float64 {
 	return math.Pi * c.r * c.r
 }
 
+type Rectangle struct {
+	x1, y1, x2, y2 float64
+}
+
+func (r *Rectangle) Area() float64 {
+	l := math.Abs(r.x2 - r.x1)
+	w := math.Abs(r.y2 - r.y1)
+	return l * w
+}
+
+
 func main() {
 	var c1 Circle
 
@@ -44,6 +55,16 @@ func main() {
 
 	fields_example()
 	method_example()
+
+
+	r := Rectangle{0, 0, 4, 6}
+	fmt.Println(r)
+	fmt.Printf("Rectangle Area: %.2f\n", r.Area())
+
+	r2 := &Rectangle{1, 2, 5, 8}
+	fmt.Println(r2)
+	fmt.Printf("Rectangle Area: %.2f\n", r2.Area())
+	
 }
 
 func fields_example() {
